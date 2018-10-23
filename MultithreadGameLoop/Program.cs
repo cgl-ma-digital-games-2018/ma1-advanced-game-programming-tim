@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32.SafeHandles;
 
 namespace MultithreadGameLoop
 {
@@ -10,13 +11,28 @@ namespace MultithreadGameLoop
     {
         private static void Main(string[] args)
         {
+            const int handleInputFrequency = 40;
+            const int updateFrequency = 90;
+            const int renderFrequency = 60;
+
+            var gameLoop = new GameLoop(handleInputFrequency, updateFrequency, renderFrequency);
+
+            gameLoop.Run();
+
+            //Console.ReadKey();
+
             // Requirements:
             //
-            // - Threads for user input, evaluation, rendering
+            // - Threads for
+            // user input,
+            // evaluation,
+            // rendering
             //
             // - Object-oriented approach to modeling the different threads
             //
             // - Configurable frequencies for each thread
+            //
+            // Which subsystem controls the threads? – Input manager, core engine, game logic, threadgenerating component?
             //
             // Optional:
             //
