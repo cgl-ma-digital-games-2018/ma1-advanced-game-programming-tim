@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.Threading;
 
 namespace MultithreadGameLoop
 {
@@ -38,7 +39,8 @@ namespace MultithreadGameLoop
 
             // 1. get user input.
             var inputLoop = new InputLoop();
-            inputLoop.Run(_inputFrequency);
+            // TODO: Run() needs to take an object in order to work!?
+            var inputThread = new Thread(inputLoop.Run);
 
             // 2. Update game logic.
             var updateLoop = new UpdateLoop();
