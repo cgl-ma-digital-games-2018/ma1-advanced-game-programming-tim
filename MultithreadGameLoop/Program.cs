@@ -11,32 +11,31 @@ namespace MultithreadGameLoop
     {
         private static void Main(string[] args)
         {
-            const int inputFrequency = 40;
-            const int updateFrequency = 90;
-            const int renderFrequency = 60;
-
-            var gameLoop = new GameLoop(inputFrequency, updateFrequency, renderFrequency);
-
-            gameLoop.Run();
-
-            //Console.ReadKey();
-
             // Requirements:
             //
-            // - Threads for
-            // user input,
-            // evaluation,
-            // rendering
+            // X - Threads for
+            // X user input,
+            // X evaluation,
+            // X rendering
             //
-            // - Object-oriented approach to modeling the different threads
+            // X - oriented approach to modeling the different threads
             //
-            // - Configurable frequencies for each thread
+            // X - Configurable frequencies for each thread
             //
-            // Which subsystem controls the threads? – Input manager, core engine, game logic, threadgenerating component?
+            // X Which subsystem controls the threads? – Input manager, core engine, game logic, thread generating component?
+            // X --> Thread generating component / core engine.
             //
             // Optional:
             //
             // Secure, shared data management
+
+            const int inputLoopFrequency = 40;
+            const int updateLoopFrequency = 90;
+            const int renderLoopFrequency = 60;
+
+            var gameLoop = new GameLoop(inputLoopFrequency, updateLoopFrequency, renderLoopFrequency);
+
+            gameLoop.Start();
         }
     }
 }

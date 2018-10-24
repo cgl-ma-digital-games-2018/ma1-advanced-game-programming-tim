@@ -12,40 +12,31 @@ namespace MultithreadGameLoop
         private readonly UpdateLoop _updateLoop;
         private readonly RenderLoop _renderLoop;
 
-        //private readonly Stopwatch _gameStopwatch = new Stopwatch();
+        private readonly Stopwatch _gameStopwatch = new Stopwatch();
         #endregion
 
-        public GameLoop(int inputFrequency, int updateFrequency, int renderFrequency)
+        public GameLoop(int inputLoopFrequency, int updateLoopFrequency, int renderLoopFrequency)
         {
-            _inputLoop = new InputLoop(inputFrequency);
-            _updateLoop = new UpdateLoop(updateFrequency);
-            _renderLoop = new RenderLoop(renderFrequency);
+            _inputLoop = new InputLoop(inputLoopFrequency);
+            _updateLoop = new UpdateLoop(updateLoopFrequency);
+            _renderLoop = new RenderLoop(renderLoopFrequency);
         }
 
-        #region Test
-        private int PrivateTestProp { get; set; } = 0;
-
-        private void PrivateTestPropTestMethod()
+        public void Start()
         {
-            PrivateTestProp = 1;
-
-            var temp = PrivateTestProp;
-        }
-        #endregion
-
-        public void Run()
-        {
-            //_gameStopwatch.Restart();
+            _gameStopwatch.Restart();
 
             // 1. get user input.
-            // TODO: Run() needs to take an object in order to work!?
-            var inputThread = new Thread(inputLoop.Run);
+            var inputThread = new Thread(new ThreadStart(_inputLoop.Run));
+            inputThread.Start();
 
             // 2. Update game logic.
-            updateLoop.Run(_updateFrequency);
+            var updateThread = new Thread(new ThreadStart(_updateLoop.Run));
+            updateThread.Start();
 
             // 3. Render.
-            renderLoop.Run(_renderFrequency);
+            var renderThread = new Thread(new ThreadStart(_renderLoop.Run));
+            renderThread.Start();
         }
     }
 }
