@@ -11,11 +11,11 @@ namespace MultithreadGameLoop
     {
         private static void Main(string[] args)
         {
-            const int handleInputFrequency = 40;
+            const int inputFrequency = 40;
             const int updateFrequency = 90;
             const int renderFrequency = 60;
 
-            var gameLoop = new GameLoop(handleInputFrequency, updateFrequency, renderFrequency);
+            var gameLoop = new GameLoop(inputFrequency, updateFrequency, renderFrequency);
 
             gameLoop.Run();
 
