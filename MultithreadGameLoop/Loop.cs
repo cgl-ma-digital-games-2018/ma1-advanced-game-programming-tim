@@ -16,7 +16,6 @@ namespace MultithreadGameLoop
         /// <summary>
         /// Runs the independent loop.
         /// </summary>
-        /// <param name="executionFrequency">The max frequency in Hz at which the loop should run.</param>
         public void Run()
         {
             // Initializes and starts a Timer.
@@ -37,11 +36,6 @@ namespace MultithreadGameLoop
                 // Prevents logic from executing more frequently than executionFrequency.
                 if (elapsedMilliseconds >= frequencyMilliseconds)
                 {
-                    Console.WriteLine("[{0}] Starting {1} after {2} ms.",
-                        GetSystemTimeAsString(),
-                        ToString(),
-                        elapsedMilliseconds);
-
                     // Executes the specific logic.
                     ExecuteLogic();
 

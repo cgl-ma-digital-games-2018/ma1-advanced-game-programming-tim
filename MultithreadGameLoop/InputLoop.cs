@@ -1,4 +1,6 @@
-﻿namespace MultithreadGameLoop
+﻿using System;
+
+namespace MultithreadGameLoop
 {
     internal class InputLoop : Loop
     {
@@ -11,6 +13,11 @@
         protected override void ExecuteLogic()
         {
             //  logic here...
+
+            //Console.WriteLine("[{0}] Starting {1} after {2} ms.",
+            //    ,
+            //    ToString(),
+            //    elapsedMilliseconds);
         }
     }
 }

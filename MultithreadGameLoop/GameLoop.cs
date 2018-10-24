@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
@@ -12,7 +13,12 @@ namespace MultithreadGameLoop
         private readonly UpdateLoop _updateLoop;
         private readonly RenderLoop _renderLoop;
 
-        private readonly Stopwatch _gameStopwatch = new Stopwatch();
+        private static readonly Stopwatch _gameStopwatch = new Stopwatch();
+        #endregion
+
+        #region Properties
+        public static long TimeSinceStart => _gameStopwatch.ElapsedMilliseconds;
+        public ConcurrentDictionary<int, GameObject> GameObjects { get; set; } = new ConcurrentDictionary<int, GameObject>();
         #endregion
 
         public GameLoop(int inputLoopFrequency, int updateLoopFrequency, int renderLoopFrequency)
