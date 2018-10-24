@@ -6,16 +6,23 @@ namespace MultithreadGameLoop
 {
     internal abstract class Loop
     {
+        public abstract int UpdateFrequency { get; set; }
+
+        public Loop(int updateFrequency)
+        {
+            UpdateFrequency = updateFrequency;
+        }
+
         /// <summary>
         /// Runs the independent loop.
         /// </summary>
         /// <param name="executionFrequency">The max frequency in Hz at which the loop should run.</param>
-        public void Run(int executionFrequency)
+        public void Run()
         {
             // Initializes and starts a Timer.
             var stopwatch = Stopwatch.StartNew();
 
-            long frequencyMilliseconds = 1000 / executionFrequency;
+            long frequencyMilliseconds = 1000 / UpdateFrequency;
 
             // The actual loop.
             while (true)
