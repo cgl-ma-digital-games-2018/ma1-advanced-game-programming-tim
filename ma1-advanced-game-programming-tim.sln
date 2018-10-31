@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultithreadGameLoop", "MultithreadGameLoop\MultithreadGameLoop.csproj", "{DF3EDB5F-BFB4-46E9-8D0F-75FC9366BBC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L02_HumanInterfaceDevices", "L02_HumanInterfaceDevices\L02_HumanInterfaceDevices.csproj", "{396CD9FA-8533-4845-AA17-AE0B664CAD27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DF3EDB5F-BFB4-46E9-8D0F-75FC9366BBC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF3EDB5F-BFB4-46E9-8D0F-75FC9366BBC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF3EDB5F-BFB4-46E9-8D0F-75FC9366BBC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{396CD9FA-8533-4845-AA17-AE0B664CAD27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{396CD9FA-8533-4845-AA17-AE0B664CAD27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{396CD9FA-8533-4845-AA17-AE0B664CAD27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{396CD9FA-8533-4845-AA17-AE0B664CAD27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
